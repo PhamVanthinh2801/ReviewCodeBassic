@@ -88,8 +88,9 @@ VALUES ('006', '155', 'CNTT', '4.0', '3.5');
 INSERT INTO Grade (St_id, Sub_code, Exam_name, Marks, Gpa)
 VALUES ('007', '155', 'CNTT', '3.0', '2.5');
 
-select Student, Avg(Grade) as Gpa
-from Student
-group by st_name
-order by 1 DESC -- Add DESC
-LIMIT 10 -- Add LIMIT
+SELECT TOP (10) Student.St_id, 
+                Student.st_name, 
+                Grade.Marks, 
+   				Subject.Sub_name,
+FROM Student,Grade,Subject
+ORDER BY Grade.Marks DESC;
